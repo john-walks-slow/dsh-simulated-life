@@ -1,0 +1,5 @@
+# dsh-simulated-life bundle patch layer
+# profile 的 dsh.profile.bundles 列出本包名即整层生效
+- insert:
+    - id: simulated-life
+      name: dsh-simulated-life
