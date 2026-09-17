@@ -49,5 +49,14 @@
   "devDependencies": {
     "@types/node": "^22.20.1",
     "typescript": "^5.9.3"
+  },
+  "author": "johnnren",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/john-walks-slow/dsh-simulated-life.git"
+  },
+  "homepage": "https://github.com/john-walks-slow/dsh-simulated-life#readme",
+  "bugs": {
+    "url": "https://github.com/john-walks-slow/dsh-simulated-life/issues"
   }
 }
