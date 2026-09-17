@@ -1,7 +1,7 @@
 {
   "name": "dsh-simulated-life",
   "version": "0.1.0",
-  "description": "Simulated life context and world evolution for DeepSeek Harness: injects past 24h simulated events with deduplication into agent session context, and provides life_react tool for recording agent feelings, thoughts, and actions.",
+  "description": "Simulated life context for DeepSeek Harness: injects the past 24h of simulated life events from the workspace .life/ directory into every conversation turn with session-level deduplication, and ships the life_react tool so the agent records its feelings, thoughts and actions back into its life log. dsh-simulated-life：为 DeepSeek Harness 的 Agent 提供拟真生活上下文——每轮自动注入工作区 .life/ 目录近 24 小时的生活事件（会话内智能增量去重），并提供 life_react 工具让 Agent 主动沉淀对事件的感受、思考与行动，形成可反哺世界演化的持久生活日志。",
   "type": "module",
   "main": "./dist/src/index.js",
   "exports": {
@@ -13,12 +13,16 @@
     "dist/src",
     "cordis.patch.yml",
     "README.md",
+    "README.en.md",
     "LICENSE"
   ],
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
     "check": "tsc -p tsconfig.json --noEmit",
-    "test": "tsc -p tsconfig.json && node --test dist/test/*.test.js"
+    "test": "tsc -p tsconfig.json && node --test dist/test/*.test.js",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test",
+    "release": "npm run test && npm version patch && npm pack --pack-destination /tmp"
   },
   "dsh": {
     "bundle": {
@@ -30,10 +34,22 @@
     "dsh-plugin",
     "deepseek-harness",
     "simulated-life",
+    "life-simulation",
+    "virtual-life",
+    "digital-life",
+    "world-evolution",
     "world-engine",
-    "events",
-    "life",
-    "context"
+    "life-events",
+    "daily-events",
+    "agent-context",
+    "context-injection",
+    "autonomous-agent",
+    "生活模拟",
+    "模拟人生",
+    "世界演化",
+    "数字生命",
+    "生活事件",
+    "上下文注入"
   ],
   "license": "MIT",
   "engines": {

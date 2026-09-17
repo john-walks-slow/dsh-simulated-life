@@ -10,7 +10,7 @@
 
 ## 2. 交付物清单
 
-- **插件源码与配置**：`本仓库根目录/`
+- **插件源码与配置**：本仓库根目录（`dsh-simulated-life/`）
   - `src/types.ts`：事件、反应、滑动窗口数据模型。
   - `src/loader.ts`：24h 动态滑动窗口扫描器与容错。
   - `src/deduplication.ts`：基于内容哈希的会话内去重与状态淘汰机制。
@@ -18,7 +18,7 @@
   - `src/tools/life-react.ts`：`life_react` 工具定义与原子化落盘。
   - `src/index.ts`：Cordis 插件主入口、`agent/pre-step` 监听与 LRU 内存防护。
   - `package.json` / `tsconfig.json` / `cordis.patch.yml`：环境与 bundle 声明。
-- **世界演算 Skill**：`~/.agents/skills/create-simulated-events/`
+- **世界演算 Skill**：`~/.agents/skills/create-simulated-events/`（全局 Skills 目录，随本机 dsh 环境分发，不在本仓库内）
   - `SKILL.md`：5 步演化闭环、真随机命运判定表、因果结算规范与 proactive 集成指南。
   - `scripts/dice.mjs`：基于 `node:crypto` 的高熵随机数投骰工具。
 - **工程文档**：

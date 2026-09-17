@@ -25,7 +25,7 @@
 
 ## 3. 用户实机验证建议路径
 
-用户可选择在任一 Living Agent（例如 `Living Agent 工作区/`）或测试工作区中进行如下验证：
+用户可选择在任一 Living Agent 工作区或隔离测试工作区中进行如下验证：
 
 1. **准备生活事件**：
    在工作区创建 `.life/260915/events.json`（可使用 `create-simulated-events` Skill 自动生成）。

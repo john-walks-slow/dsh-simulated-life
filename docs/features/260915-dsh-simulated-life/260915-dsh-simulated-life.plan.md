@@ -37,7 +37,7 @@
 ## 3. 数据结构规范
 
 ### 3.1 目录层级
-每个 Living Agent 的工作目录（例如 `Living Agent 工作区/` 或测试工作区）下维护私有 `.life/` 目录：
+每个 Living Agent 的工作目录（例如任一 Living Agent 工作区或隔离测试工作区）下维护私有 `.life/` 目录：
 ```text
 $WORKSPACE/.life/
 ├── world_state.json         # (可选) 当前 Agent 所处世界/城市的基本状态缓存
@@ -197,7 +197,7 @@ $WORKSPACE/.life/
 ## 6. 实施路线图与交付计划
 
 ### Phase 1: 基础工程与类型定义
-- 初始化 `本仓库根目录` 工程；
+- 初始化 dsh-simulated-life 工程（本仓库根目录）；
 - 编写 `package.json`（对齐 `@deepseek-ai/*` 依赖并配置本地 `node_modules`）、`tsconfig.json`、`cordis.patch.yml`；
 - 实现 `src/types.ts`（数据模型、JSON Schema 校验）。
 
@@ -213,11 +213,11 @@ $WORKSPACE/.life/
 - 编写工具与集成测试。
 
 ### Phase 4: 世界演化 Skill 开发
-- 在 `~/.agents/skills/create-simulated-events/` 编写完整的 `SKILL.md`；
+- 在全局 Skills 目录（`~/.agents/skills/create-simulated-events/`）编写完整的 `SKILL.md`；
 - 配备真随机命运骰子辅助脚本 `scripts/dice.mjs`；
 - 提供世界设定与 Agent 状态的规范模板。
 
 ### Phase 5: 端到端验证与 Profile 接线
-- 在真实 Agent 目录（如 `Living Agent 工作区/` 或隔离测试环境）创建模拟 `.life` 数据；
+- 在真实 Living Agent 工作区或隔离测试环境创建模拟 `.life` 数据；
 - 执行端到端会话演练（24h 注入验证、`life_react` 回填验证、增量去重验证）；
-- 接入 `~/.dsh/profiles/web/package.json`并在独立端口完成 DSH 启动与加载验证。
+- 接入 `~/.dsh/profiles/web/package.json` 并在独立端口完成 DSH 启动与加载验证。
