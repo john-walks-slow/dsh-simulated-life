@@ -118,6 +118,16 @@ npm test          # tsc(incl. test) + node --test dist/test/*.test.js
 npm run check     # type check
 ```
 
+## Companion Workflow (Sister Skill)
+
+This plugin handles "event injection and write-back"; the **creation and evolution** of events is driven by the companion Agent Skill [`create-simulated-events`](skills/create-simulated-events/SKILL.md) (bundled in this repo under `skills/`):
+
+- Creates daily life events for Living Agents, runs causal settlement, and writes `.life/<date>/events.json` which this plugin reads
+- Supports multi-agent cross-settlement and true-random fate rolls
+- Pairs with dsh-proactive `scheduleFiles` for daily scheduled triggers
+
+**Recommended companion**: copy `skills/create-simulated-events/` into your `~/.agents/skills/` directory so your agent gets the full loop of "create events" + "react to events".
+
 ## Release a new version
 
 One command runs tests, bumps the version and packs (`npm version` also commits and tags):
