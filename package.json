@@ -1,6 +1,6 @@
 {
   "name": "dsh-simulated-life",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Simulated life context for DeepSeek Harness: injects the past 24h of simulated life events from the workspace .life/ directory into every conversation turn with session-level deduplication, and ships the life_react tool so the agent records its feelings, thoughts and actions back into its life log. dsh-simulated-life：为 DeepSeek Harness 的 Agent 提供拟真生活上下文——每轮自动注入工作区 .life/ 目录近 24 小时的生活事件（会话内智能增量去重），并提供 life_react 工具让 Agent 主动沉淀对事件的感受、思考与行动，形成可反哺世界演化的持久生活日志。",
   "type": "module",
   "main": "./dist/src/index.js",
