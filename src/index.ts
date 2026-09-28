@@ -5,13 +5,22 @@
 import type { Context } from "@deepseek-ai/cordis";
 import type { Agent, PreStepDecision } from "@deepseek-ai/dsh-agent";
 import { boundContextSummary, createUserMessage } from "@deepseek-ai/dsh-llm";
-import type { UserMessage } from "@deepseek-ai/dsh-llm";
+import type { ContextFormed, UserMessage } from "@deepseek-ai/dsh-llm";
 import z from "@deepseek-ai/schemastery";
 import { loadRecentLifeEvents } from "./loader.js";
 import { evaluateDeduplication } from "./deduplication.js";
 import { formatLifeContext, formatNoticeSummary } from "./formatter.js";
 import { createLifeReactTool } from "./tools/life-react.js";
 import type { SessionLifeProjectionState } from "./types.js";
+
+/** Producer-owned source kind for this plugin's injected life-context notices. */
+declare module "@deepseek-ai/dsh-llm" {
+	interface MessageSourceMap {
+		"dsh-simulated-life": {
+			kind: "dsh-simulated-life";
+		} & ContextFormed;
+	}
+}
 
 /** Cordis plugin name used by loader diagnostics and message attribution. */
 export const name = "dsh-simulated-life";
@@ -72,8 +81,7 @@ export async function handleLifePreStep(
 	const message = createUserMessage({
 		content: [{ type: "text", text: formattedText }],
 		source: {
-			kind: "plugin",
-			plugin: name,
+			kind: name,
 			form: "notice",
 			summary: boundContextSummary(summaryText)
 		}

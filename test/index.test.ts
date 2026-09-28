@@ -57,7 +57,7 @@ test("handleLifePreStep injects notice UserMessage when events exist in .life", 
 		const result = await handleLifePreStep(fakeAgent, 1, false, undefined, 24, now);
 		assert.ok(result.message);
 		assert.equal(result.message.role, "user");
-		assert.equal((result.message.source as any).plugin, "dsh-simulated-life");
+		assert.equal((result.message.source as any).kind, "dsh-simulated-life");
 		assert.equal((result.message.source as any).form, "notice");
 
 		const contentText = (result.message.content[0] as any).text;
