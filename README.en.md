@@ -148,3 +148,7 @@ Verify with `npm view dsh-simulated-life version`.
 ## License
 
 MIT
+
+## Community
+
+- Thanks to the [LINUX DO](https://linux.do/) community for providing the discussion environment.
